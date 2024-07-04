@@ -7,12 +7,13 @@
     <nav class="ml-auto">
       <ul class="flex items-center">
         <li v-for="menu in headerMenus" :key="menu.path" class="ml-5">
-          <RouterLink
-            :to="menu.path"
-            :class="checkIsRouteAndPathSame(menu.path) ? 'text-indigo-600' : 'text-slate-600'"
-            class="text-base font-medium primary-font"
-            >{{ menu.label }}</RouterLink
-          >
+          <RouterLink :to="menu.path" :class="checkIsRouteAndPathSame(menu.path) ? 'text-indigo-600' : 'text-slate-600'"
+            class="text-base font-medium primary-font">{{ menu.label }}</RouterLink>
+        </li>
+        <li class="divide-x-2 divide-solid"></li>
+        <li class="ml-5">
+          <RouterLink to="/admin" class="text-base font-medium primary-font text-slate-600">Admin Area
+          </RouterLink>
         </li>
       </ul>
     </nav>
@@ -22,7 +23,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import LogoVue from '@/app/components/icons/Vue.vue'
+import LogoVue from '@/app/components/icons/LogoVue.vue'
 import { appConfig } from '@/app/configs'
 
 defineComponent({
@@ -52,7 +53,7 @@ const checkIsRouteAndPathSame = (path: string) => {
 </script>
 
 <style scoped>
-.app-header-logo > svg {
+.app-header-logo>svg {
   width: 20px;
   height: auto;
 }
